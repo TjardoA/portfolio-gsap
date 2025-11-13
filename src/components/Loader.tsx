@@ -23,7 +23,7 @@ export function Loader({ onComplete }: LoaderProps) {
     return () => clearInterval(interval);
   }, [onComplete]);
 
-  const name = "ALEX RODRIGUEZ";
+  const name = "TJARDO ANTONIE";
   const letters = name.split("");
 
   return (

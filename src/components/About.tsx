@@ -30,7 +30,9 @@ export function About({ name, aboutMe, photo }: AboutProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-cyan-400 mb-2 inline-block">Get to know me</span>
+          <span className="text-cyan-400 mb-2 inline-block">
+            Get to know me
+          </span>
           <h2 className="text-white">About Me</h2>
         </motion.div>
 
@@ -65,7 +67,7 @@ export function About({ name, aboutMe, photo }: AboutProps) {
                   }}
                 />
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1620216464663-29984da34a12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjI3ODY0Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  src={photo}
                   alt={name}
                   className="w-full h-full object-cover"
                 />
@@ -105,22 +107,28 @@ export function About({ name, aboutMe, photo }: AboutProps) {
                 transition={{ duration: 0.2 }}
               >
                 <div className="text-cyan-400 mb-1 text-lg md:text-2xl">3+</div>
-                <div className="text-slate-400 text-xs md:text-sm">Years Exp</div>
+                <div className="text-slate-400 text-xs md:text-sm">
+                  Years Exp
+                </div>
               </motion.div>
               <motion.div
                 className="text-center p-3 md:p-4 bg-slate-900/50 rounded-lg border border-slate-800"
                 whileHover={{ scale: 1.05, borderColor: "rgb(6 182 212)" }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="text-cyan-400 mb-1 text-lg md:text-2xl">50+</div>
-                <div className="text-slate-400 text-xs md:text-sm">Projects</div>
+                <div className="text-cyan-400 mb-1 text-lg md:text-2xl">
+                  10+
+                </div>
+                <div className="text-slate-400 text-xs md:text-sm">
+                  Projects
+                </div>
               </motion.div>
               <motion.div
                 className="text-center p-3 md:p-4 bg-slate-900/50 rounded-lg border border-slate-800"
                 whileHover={{ scale: 1.05, borderColor: "rgb(6 182 212)" }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="text-cyan-400 mb-1 text-lg md:text-2xl">20+</div>
+                <div className="text-cyan-400 mb-1 text-lg md:text-2xl">3</div>
                 <div className="text-slate-400 text-xs md:text-sm">Clients</div>
               </motion.div>
             </div>

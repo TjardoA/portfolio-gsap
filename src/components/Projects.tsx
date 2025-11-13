@@ -18,12 +18,7 @@ interface ProjectsProps {
   projects: Project[];
 }
 
-const projectImages: Record<number, string> = {
-  1: "https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDF8fHx8MTc2Mjc1ODI1OHww&ixlib=rb-4.1.0&q=80&w=1080",
-  2: "https://images.unsplash.com/photo-1630442923896-244dd3717b35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWF0aGVyJTIwYXBwbGljYXRpb258ZW58MXx8fHwxNzYyODQ1NDA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-  3: "https://images.unsplash.com/photo-1758876202468-5ffe0ee61f07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXNrJTIwbWFuYWdlbWVudCUyMGJvYXJkfGVufDF8fHx8MTc2Mjg2MjY3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-  4: "https://images.unsplash.com/photo-1581431886211-6b932f8367f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0Zm9saW8lMjB0ZW1wbGF0ZXxlbnwxfHx8fDE3NjI4NjI2NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-};
+
 
 export function Projects({ projects }: ProjectsProps) {
   const ref = useRef(null);
@@ -108,7 +103,7 @@ export function Projects({ projects }: ProjectsProps) {
                     transition={{ duration: 0.3 }}
                   >
                     <ImageWithFallback
-                      src={projectImages[currentProject.id]}
+                      src={currentProject.image}
                       alt={currentProject.title}
                       className="w-full h-full object-cover"
                     />
@@ -222,7 +217,7 @@ export function Projects({ projects }: ProjectsProps) {
               {/* Content */}
               <div className="p-6 space-y-6">
                 <ImageWithFallback
-                  src={projectImages[selectedProject.id]}
+                  src={selectedProject.image}
                   alt={selectedProject.title}
                   className="w-full h-64 object-cover rounded-lg"
                 />
