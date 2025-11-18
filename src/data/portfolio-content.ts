@@ -6,7 +6,7 @@ export const portfolioData = {
     email: "tjardo.antonie@gmail.com",
     photo: "./assets/profile.jpg", // Plaats je profiel foto in de /assets map
     aboutMe:
-      "Hoi, ik ben Tjardo Antonie — een student webdevelopment aan het Grafisch Lyceum Utrecht met een sterke passie voor design, code en creativiteit. Ik studeer momenteel om full-stack webdeveloper te worden, met een grote interesse in moderne technologieën zoals Next.js, React en Tailwind CSS. Ik vind het leuk om nieuwe tools en frameworks te ontdekken en ben altijd op zoek naar manieren om te leren en mezelf te verbeteren. Buiten het coderen kun je me waarschijnlijk vinden terwijl ik naar muziek luister of actief bezig ben met sport. Ik combineer graag creativiteit en technologie om mooie en functionele webervaringen te creëren.",
+      "Ik ben Tjardo Antonie, webdevelopmentstudent aan het Grafisch Lyceum Utrecht met een sterke interesse in web development. Ik werk veel met moderne tools zoals Next.js, React en Tailwind CSS, en ik vind het leuk om nieuwe technologieën te ontdekken en mezelf continu te verbeteren. Voor mij is webdevelopment de ideale mix van creativiteit en techniek: het geeft me de ruimte om ideeën om te zetten in functionele en aantrekkelijke webervaringen. Buiten het coderen ben ik vaak bezig met muziek of sport. Ik haal energie uit het leren, creëren en bouwen aan digitale projecten die echt iets toevoegen.",
   },
   socials: {
     linkedin: "https://www.linkedin.com/in/tjardo-antonie-52284726a/",
