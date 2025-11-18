@@ -114,19 +114,21 @@ export const portfolioData = {
     },
     {
       id: 4,
-      title: "Portfolio Generator",
-      shortDescription: "Create stunning portfolios",
+      title: "Portfolio",
+      shortDescription: "Mijn gepersonaliseerde portfolio website",
       description:
-        "Een tool waarmee developers snel en eenvoudig hun eigen portfolio website kunnen genereren. Kies uit verschillende templates, pas kleuren en content aan, en export de volledige code. Inclusief dark mode en verschillende layout opties.",
+        "Mijn eigen portfolio website, gebouwd met React, TypeScript en Tailwind CSS. De site toont mijn vaardigheden, projecten en contactinformatie, met een focus op animaties en een gebruiksvriendelijke interface.",
       technologies: [
         "React",
         "TypeScript",
         "Tailwind CSS",
-        "Monaco Editor",
+        "GSAP",
         "Vite",
+        "Framer Motion",
       ],
-      githubUrl: "https://github.com/tjardoantonie/portfolio-generator",
-      image: "/assets/project-4.jpg",
+      githubUrl: "https://github.com/TjardoA/portfolio-gsap",
+      image: "/assets/project-4-logo.jpg",
+      imageDetail: "/assets/project-4-banner.jpg",
     },
   ],
 };
