@@ -106,7 +106,7 @@ export function About({ name, aboutMe, photo }: AboutProps) {
                 whileHover={{ scale: 1.05, borderColor: "rgb(6 182 212)" }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="text-cyan-400 mb-1 text-lg md:text-2xl">3+</div>
+                <div className="text-cyan-400 mb-1 text-lg md:text-2xl">3</div>
                 <div className="text-slate-400 text-xs md:text-sm">
                   Years Exp
                 </div>

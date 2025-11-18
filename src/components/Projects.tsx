@@ -1,7 +1,13 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, X, ExternalLink, Github } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  X,
+  ExternalLink,
+  Github,
+} from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface Project {
@@ -11,14 +17,13 @@ interface Project {
   description: string;
   technologies: string[];
   githubUrl: string;
-  image: string;
+  image: string; // thumbnail voor carousel
+  imageDetail?: string; // extra afbeelding voor detailweergave
 }
 
 interface ProjectsProps {
   projects: Project[];
 }
-
-
 
 export function Projects({ projects }: ProjectsProps) {
   const ref = useRef(null);
@@ -98,18 +103,16 @@ export function Projects({ projects }: ProjectsProps) {
                 <div className="grid md:grid-cols-2 gap-6 md:gap-8 h-full items-center px-4 md:px-0">
                   {/* Project image */}
                   <motion.div
-                    className="relative h-64 md:h-full rounded-2xl overflow-hidden group"
+                    className="relative h-64 md:h-full rounded-2xl overflow-hidden group bg-slate-950"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
                     <ImageWithFallback
                       src={currentProject.image}
                       alt={currentProject.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain bg-slate-950"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
-                    
-                    {/* Overlay on hover */}
                     <div className="absolute inset-0 bg-cyan-500/0 group-hover:bg-cyan-500/10 transition-colors duration-300" />
                   </motion.div>
 
@@ -119,25 +122,27 @@ export function Projects({ projects }: ProjectsProps) {
                       <span className="text-cyan-400 text-xs md:text-sm">
                         Project {currentIndex + 1} of {projects.length}
                       </span>
-                      <h3 className="text-white mt-2 text-2xl md:text-3xl">{currentProject.title}</h3>
+                      <h3 className="text-white mt-2 text-2xl md:text-3xl">
+                        {currentProject.title}
+                      </h3>
                       <p className="text-slate-400 mt-2 text-sm md:text-base">
                         {currentProject.shortDescription}
                       </p>
                     </div>
 
-                    {/* Technologies */}
                     <div className="flex flex-wrap gap-2">
-                      {currentProject.technologies.slice(0, 4).map((tech, i) => (
-                        <span
-                          key={i}
-                          className="px-2 md:px-3 py-1 bg-slate-800 text-cyan-400 rounded-full text-xs md:text-sm border border-slate-700"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                      {currentProject.technologies
+                        .slice(0, 4)
+                        .map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-2 md:px-3 py-1 bg-slate-800 text-cyan-400 rounded-full text-xs md:text-sm border border-slate-700"
+                          >
+                            {tech}
+                          </span>
+                        ))}
                     </div>
 
-                    {/* Button */}
                     <button
                       onClick={() => setSelectedProject(currentProject)}
                       className="px-5 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 flex items-center gap-2 text-sm md:text-base"
@@ -217,9 +222,9 @@ export function Projects({ projects }: ProjectsProps) {
               {/* Content */}
               <div className="p-6 space-y-6">
                 <ImageWithFallback
-                  src={selectedProject.image}
+                  src={selectedProject.imageDetail || selectedProject.image}
                   alt={selectedProject.title}
-                  className="w-full h-64 object-cover rounded-lg"
+                  className="w-full h-64 object-contain bg-slate-950 rounded-lg"
                 />
 
                 <div>

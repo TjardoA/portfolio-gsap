@@ -18,7 +18,7 @@ export const portfolioData = {
       name: "HTML & CSS",
       description: "Semantic and modern",
       icon: "code",
-      color: "from-red-500 to-red-500",
+      color: "from-purple-500 to-red-500",
     },
     {
       name: "JavaScript",
@@ -79,7 +79,8 @@ export const portfolioData = {
         "Tailwind CSS",
       ],
       githubUrl: "https://github.com/David-Schoots/AnnexBios",
-      image: "/assets/project-1.jpg",
+      image: "/assets/project-1-logo.jpg",
+      imageDetail: "/assets/project-1-banner.jpg",
     },
     {
       id: 2,
@@ -97,7 +98,8 @@ export const portfolioData = {
         "MySQL",
       ],
       githubUrl: "https://github.com/PepijnBullens/happy_herbivore",
-      image: "/assets/project-2.jpg",
+      image: "/assets/project-2-logo.jpg",
+      imageDetail: "/assets/project-2-banner.jpg",
     },
     {
       id: 3,
@@ -107,7 +109,8 @@ export const portfolioData = {
         "Een persoonlijke website voor Rolvin Rijkaard, waarin zijn portfolio en prestaties worden getoond. De site is gebouwd met Elementor en WordPress en heeft een strak ontwerp met vloeiende animaties.",
       technologies: ["Wordpress", "Elementor"],
       githubUrl: "https://github.com/tjardoantonie/task-manager",
-      image: "/assets/project-3.jpg",
+      image: "/assets/project-3-logo.jpg",
+      imageDetail: "/assets/project-3-banner.jpg",
     },
     {
       id: 4,
