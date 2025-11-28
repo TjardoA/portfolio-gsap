@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useMemo, useState } from "react";
 
 interface LoaderProps {
   onComplete: () => void;
@@ -7,6 +7,17 @@ interface LoaderProps {
 
 export function Loader({ onComplete }: LoaderProps) {
   const [progress, setProgress] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
+  const isMobile = typeof window !== "undefined" ? window.innerWidth < 768 : false;
+  const dotCount = prefersReducedMotion ? 0 : isMobile ? 2 : 5;
+
+  const burstDots = useMemo(() => {
+    return Array.from({ length: dotCount }, (_, i) => ({
+      delay: i * 0.2,
+      dx: Math.random() * 400 - 200,
+      dy: Math.random() * 400 - 200,
+    }));
+  }, [dotCount]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -75,7 +86,7 @@ export function Loader({ onComplete }: LoaderProps) {
 
         {/* Animated dots */}
         <div className="absolute -top-20 -left-20 w-full h-full pointer-events-none">
-          {[...Array(5)].map((_, i) => (
+          {burstDots.map((dot, i) => (
             <motion.div
               key={i}
               className="absolute w-2 h-2 bg-cyan-500 rounded-full"
@@ -83,12 +94,12 @@ export function Loader({ onComplete }: LoaderProps) {
               animate={{
                 scale: [0, 1, 0],
                 opacity: [0, 1, 0],
-                x: [0, Math.random() * 400 - 200],
-                y: [0, Math.random() * 400 - 200],
+                x: [0, dot.dx],
+                y: [0, dot.dy],
               }}
               transition={{
                 duration: 2,
-                delay: i * 0.2,
+                delay: dot.delay,
                 repeat: Infinity,
                 repeatDelay: 1,
               }}

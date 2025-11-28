@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
+import { useMemo } from "react";
 import { ChevronDown } from "lucide-react";
 
 interface HeroProps {
@@ -8,6 +9,23 @@ interface HeroProps {
 }
 
 export function Hero({ name, title, tagline }: HeroProps) {
+  const prefersReducedMotion = useReducedMotion();
+  const isMobile = typeof window !== "undefined" ? window.innerWidth < 768 : false;
+  const dotCount = prefersReducedMotion ? 0 : isMobile ? 6 : 16;
+  const viewportWidth = typeof window !== "undefined" ? window.innerWidth : 1200;
+  const viewportHeight = typeof window !== "undefined" ? window.innerHeight : 800;
+
+  const floatingDots = useMemo(() => {
+    return Array.from({ length: dotCount }, () => ({
+      x: Math.random() * viewportWidth,
+      y: Math.random() * viewportHeight,
+      dx: Math.random() * 120 - 60,
+      dy: Math.random() * 120 - 60,
+      duration: Math.random() * 6 + 12,
+      delay: Math.random() * 2,
+    }));
+  }, [dotCount, viewportHeight, viewportWidth]);
+
   const scrollToAbout = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -16,22 +34,24 @@ export function Hero({ name, title, tagline }: HeroProps) {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {floatingDots.map((dot, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-cyan-500/30 rounded-full"
+            className="absolute w-1 h-1 bg-cyan-500/30 rounded-full will-change-transform"
             initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: dot.x,
+              y: dot.y,
             }}
             animate={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: [dot.x, dot.x + dot.dx, dot.x],
+              y: [dot.y, dot.y + dot.dy, dot.y],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: dot.duration,
               repeat: Infinity,
-              repeatType: "reverse",
+              repeatType: "mirror",
+              ease: "easeInOut",
+              delay: dot.delay,
             }}
           />
         ))}

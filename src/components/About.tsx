@@ -20,8 +20,8 @@ export function About({ name, aboutMe, photo }: AboutProps) {
       className="min-h-screen py-20 px-4 bg-slate-950 relative overflow-hidden"
     >
       {/* Background gradient orbs */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl hidden md:block" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl hidden md:block" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
