@@ -29,18 +29,14 @@ export function Footer({ socials, name }: FooterProps) {
           <div className="space-y-3 md:space-y-4">
             <h4 className="text-white text-base md:text-lg">Quick Links</h4>
             <nav className="flex flex-col gap-2">
-              {["About", "Skills", "Projects", "Contact"].map((item) => (
-                <button
+              {["about", "skills", "projects", "contact"].map((item) => (
+                <a
                   key={item}
-                  onClick={() =>
-                    document
-                      .getElementById(item.toLowerCase())
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
+                  href={`#${item}`}
                   className="text-slate-400 hover:text-cyan-400 transition-colors text-left text-xs md:text-sm"
                 >
-                  {item}
-                </button>
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </a>
               ))}
             </nav>
           </div>

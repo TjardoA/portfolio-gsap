@@ -30,13 +30,6 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
@@ -47,8 +40,8 @@ const Navigation = () => {
       <ul className="flex space-x-6">
         {navItems.map((item) => (
           <li key={item.id}>
-            <button
-              onClick={() => scrollToSection(item.id)}
+            <a
+              href={`#${item.id}`}
               className={`relative px-3 py-2 rounded-full transition-all duration-300 ${
                 activeSection === item.id
                   ? "text-primary"
@@ -63,7 +56,7 @@ const Navigation = () => {
                 />
               )}
               <span className="relative z-10">{item.label}</span>
-            </button>
+            </a>
           </li>
         ))}
       </ul>
