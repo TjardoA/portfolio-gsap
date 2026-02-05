@@ -11,8 +11,7 @@ import { Footer } from "./components/Footer";
 import { portfolioData } from "./data/portfolio-content";
 
 export default function App() {
-  // Render content immediately for SEO; loader can still be triggered later if needed.
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Prevent scrolling while loading
@@ -25,36 +24,38 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950">
-      <Navigation />
-
       <AnimatePresence mode="wait">
-        {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
+        {isLoading && (
+          <Loader onComplete={() => setIsLoading(false)} />
+        )}
       </AnimatePresence>
 
-      <>
-        <Hero
-          name={portfolioData.personal.name}
-          title={portfolioData.personal.title}
-          tagline={portfolioData.personal.tagline}
-        />
+      {!isLoading && (
+        <>
+          <Hero
+            name={portfolioData.personal.name}
+            title={portfolioData.personal.title}
+            tagline={portfolioData.personal.tagline}
+          />
 
-        <About
-          name={portfolioData.personal.name}
-          aboutMe={portfolioData.personal.aboutMe}
-          photo={portfolioData.personal.photo}
-        />
+          <About
+            name={portfolioData.personal.name}
+            aboutMe={portfolioData.personal.aboutMe}
+            photo={portfolioData.personal.photo}
+          />
 
-        <Skills skills={portfolioData.skills} />
+          <Skills skills={portfolioData.skills} />
 
-        <Projects projects={portfolioData.projects} />
+          <Projects projects={portfolioData.projects} />
 
-        <Contact email={portfolioData.personal.email} />
+          <Contact email={portfolioData.personal.email} />
 
-        <Footer
-          socials={portfolioData.socials}
-          name={portfolioData.personal.name}
-        />
-      </>
+          <Footer
+            socials={portfolioData.socials}
+            name={portfolioData.personal.name}
+          />
+        </>
+      )}
     </div>
   );
 }

@@ -31,10 +31,7 @@ export function Hero({ name, title, tagline }: HeroProps) {
   };
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950"
-    >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {floatingDots.map((dot, i) => (
@@ -85,7 +82,6 @@ export function Hero({ name, title, tagline }: HeroProps) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <span className="sr-only">{`${name} — ${title}`}</span>
             {name.split(" ").map((word, i) => (
               <motion.span
                 key={i}

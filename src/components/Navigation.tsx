@@ -40,8 +40,13 @@ const Navigation = () => {
       <ul className="flex space-x-6">
         {navItems.map((item) => (
           <li key={item.id}>
-            <a
-              href={`#${item.id}`}
+            <button
+              onClick={() => {
+                const element = document.getElementById(item.id);
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
               className={`relative px-3 py-2 rounded-full transition-all duration-300 ${
                 activeSection === item.id
                   ? "text-primary"
@@ -56,7 +61,7 @@ const Navigation = () => {
                 />
               )}
               <span className="relative z-10">{item.label}</span>
-            </a>
+            </button>
           </li>
         ))}
       </ul>
