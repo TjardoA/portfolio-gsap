@@ -80,7 +80,7 @@ const ProjectDetailModal = ({ project, isOpen, onClose }: ProjectDetailModalProp
               <div className="p-6 md:p-8 space-y-8">
                 {/* Header */}
                 <div>
-                  <h1 className="text-3xl md:text-4xl mb-4">{project.title}</h1>
+                <h2 className="text-3xl md:text-4xl mb-4">{project.title}</h2>
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     {project.detailedDescription || project.description}
                   </p>
