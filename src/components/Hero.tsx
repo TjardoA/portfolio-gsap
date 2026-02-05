@@ -85,6 +85,7 @@ export function Hero({ name, title, tagline }: HeroProps) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
+            <span className="sr-only">{`${name} — ${title}`}</span>
             {name.split(" ").map((word, i) => (
               <motion.span
                 key={i}
