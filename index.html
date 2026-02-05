@@ -8,7 +8,7 @@
     <title>Tjardo Antonie | Front-end Developer Portfolio</title>
     <meta
       name="description"
-      content="Portfolio van Tjardo Antonie, front-end developer in React, TypeScript en Tailwind CSS. Bekijk projecten, vaardigheden en neem contact op."
+      content="Portfolio van Tjardo Antonie, front-end & web developer gespecialiseerd in React, TypeScript en Tailwind CSS. Bekijk projecten, vaardigheden en neem contact op."
     />
     <link rel="canonical" href="https://www.tjardoantonie.nl/" />
 
@@ -65,6 +65,25 @@
   </head>
 
   <body>
+    <!-- Minimal fallback navigation and headings for crawlers / no-JS -->
+    <nav style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+      <a href="#hero">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.linkedin.com/in/tjardo-antonie-52284726a/">LinkedIn</a>
+      <a href="https://github.com/TjardoA">GitHub</a>
+    </nav>
+
+    <noscript>
+      <h1 id="hero">Tjardo Antonie — Front-end Developer</h1>
+      <h2 id="projects">Projecten</h2>
+      <h2 id="about">Over mij</h2>
+      <h2 id="skills">Skills</h2>
+      <h2 id="contact">Contact</h2>
+    </noscript>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
