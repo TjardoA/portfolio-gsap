@@ -17,6 +17,7 @@ interface Project {
   description: string;
   technologies: string[];
   githubUrl: string;
+  demoUrl?: string;
   image: string; // thumbnail voor carousel
   imageDetail?: string; // extra afbeelding voor detailweergave
 }
@@ -103,7 +104,7 @@ export function Projects({ projects }: ProjectsProps) {
                 <div className="grid md:grid-cols-2 gap-6 md:gap-8 h-full items-center px-4 md:px-0">
                   {/* Project image */}
                   <motion.div
-                    className="relative h-64 md:h-full rounded-2xl overflow-hidden group bg-slate-950"
+                    className="relative w-full aspect-[4/3] md:aspect-[16/9] rounded-2xl overflow-hidden group bg-slate-950 flex items-center justify-center"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -221,11 +222,14 @@ export function Projects({ projects }: ProjectsProps) {
 
               {/* Content */}
               <div className="p-6 space-y-6">
-                <ImageWithFallback
-                  src={selectedProject.imageDetail || selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-64 object-contain bg-slate-950 rounded-lg"
-                />
+                <div className="relative w-full bg-slate-950 aspect-[16/9] max-h-[70vh] overflow-hidden rounded-lg flex items-center justify-center">
+                  <ImageWithFallback
+                    src={selectedProject.imageDetail || selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-full object-contain"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                </div>
 
                 <div>
                   <h4 className="text-white mb-3">Description</h4>
@@ -248,7 +252,18 @@ export function Projects({ projects }: ProjectsProps) {
                   </div>
                 </div>
 
-                <div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  {selectedProject.demoUrl && (
+                    <a
+                      href={selectedProject.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/40 transition-colors"
+                    >
+                      <ExternalLink size={20} />
+                      View Live
+                    </a>
+                  )}
                   <a
                     href={selectedProject.githubUrl}
                     target="_blank"
