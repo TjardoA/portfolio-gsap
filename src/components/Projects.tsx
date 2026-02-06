@@ -157,7 +157,8 @@ export function Projects({ projects }: ProjectsProps) {
             </AnimatePresence>
           </div>
 
-          {/* Navigation buttons */}
+
+          {/* Navigation buttons (overlay) */}
           <button
             onClick={handlePrevious}
             className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-slate-800/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-cyan-500 transition-colors duration-300 z-10"
